@@ -1,0 +1,69 @@
+{
+  "mcpServers": {
+    // Supabase MCP - PostgreSQLデータベース操作、認証、ストレージ管理
+    // ローカル開発環境（http://127.0.0.1:54321）に接続
+    "supabase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest"
+      ],
+      "env": {
+        "SUPABASE_URL": "http://127.0.0.1:54321",
+        "SUPABASE_SERVICE_ROLE_KEY": "sb_secret_N7UND0UgjKTVK-Uodkm0Hg_xSvEMPvz"
+      }
+    },
+
+    // Playwright MCP - E2Eテスト実行、ブラウザ自動操作、スクリーンショット取得
+    // デバッグエージェント（debug-helper）が主に使用
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    },
+
+    // Chrome DevTools MCP - ブラウザデバッグ、コンソールログ解析、ネットワーク監視、パフォーマンス計測
+    // メモリリーク検出やパフォーマンス問題の調査に使用
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+
+    // GitHub MCP - リポジトリ操作、Issue管理、PR作成・レビュー
+    // 要アクセストークン設定（GITHUB_PERSONAL_ACCESS_TOKEN）
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN_HERE"
+      }
+    },
+
+    // Serena MCP - シンボリック検索、コード分析、シンボル置換
+    // クラス・関数・メソッドの検索、参照箇所の特定、プロジェクトメモリ機能
+    "serena": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@serenaai/mcp-server-serena@latest"
+      ]
+    },
+
+    // Context7 MCP - コードベース全体のコンテキスト提供、ファイル構造分析
+    // プロジェクト全体の理解、ドキュメント生成、アーキテクチャ分析に使用
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@context7/mcp-server@latest"
+      ]
+    }
+  }
+}
